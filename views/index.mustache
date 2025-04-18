@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dance Courses</title>
+</head>
+<body>
+  <h1>Welcome to the Dance Course Booking App</h1>
+  {{#user}}
+    <p>Hello, {{user.username}}!</p>
+    <a href="/logout">Logout</a>
+  {{/user}}
+  {{^user}}
+    <a href="/login">Login</a> | <a href="/register">Register</a>
+  {{/user}}
+</body>
+</html>

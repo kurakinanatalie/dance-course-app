@@ -1,0 +1,14 @@
+<h1>Edit Class</h1>
+<form method="POST" action="/classes/edit/{{cls._id}}">
+  <input type="hidden" name="courseId" value="{{cls.courseId}}">
+
+  <label>Date & Time:</label><br/>
+  <input type="datetime-local" name="dateTime" value="{{cls.dateTime}}" required><br/>
+
+  <label>Location:</label><br/>
+  <input type="text" name="location" value="{{cls.location}}" required><br/><br/>
+
+  <button type="submit">Update</button>
+</form>
+
+<a href="/courses/{{cls.courseId}}/classes">Back to Classes</a>

@@ -1,0 +1,12 @@
+<h1>Book a Course</h1>
+<form method="POST" action="/courses/{{courseId}}/book">
+  <label>Your Name:</label><br/>
+  <input type="text" name="name" required /><br/>
+
+  <label>Email:</label><br/>
+  <input type="email" name="email" required /><br/><br/>
+
+  <button type="submit">Book Course</button>
+</form>
+
+<a href="/courses">Back to Courses</a>

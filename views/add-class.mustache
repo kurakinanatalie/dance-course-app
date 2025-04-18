@@ -1,0 +1,12 @@
+<h1>Add New Class</h1>
+<form method="POST" action="/courses/{{courseId}}/classes/add">
+  <label>Date & Time:</label><br/>
+  <input type="datetime-local" name="dateTime" required><br/>
+
+  <label>Location:</label><br/>
+  <input type="text" name="location" required><br/><br/>
+
+  <button type="submit">Create Class</button>
+</form>
+
+<a href="/courses/{{courseId}}/classes">Back to Classes</a>

@@ -1,0 +1,27 @@
+<h1>Add New Course</h1>
+<form method="POST" action="/courses/add">
+  <label>Name:</label><br/>
+  <input type="text" name="name" required /><br/>
+
+  <label>Description:</label><br/>
+  <textarea name="description" required></textarea><br/>
+
+  <label>Price (£):</label><br/>
+  <input type="number" name="price" required /><br/>
+
+  <label>Start Date:</label><br/>
+  <input type="date" name="startDate" required /><br/>
+
+  <label>End Date:</label><br/>
+  <input type="date" name="endDate" required /><br/>
+
+  <label>Type:</label><br/>
+  <select name="type" required>
+    <option value="weekly">Weekly</option>
+    <option value="weekend">Weekend</option>
+  </select><br/><br/>
+
+  <button type="submit">Create Course</button>
+</form>
+
+<a href="/courses">Back to Courses</a>

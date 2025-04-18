@@ -1,0 +1,27 @@
+<h1>Edit Course</h1>
+<form method="POST" action="/courses/edit/{{course._id}}">
+  <label>Name:</label><br/>
+  <input type="text" name="name" value="{{course.name}}" required /><br/>
+
+  <label>Description:</label><br/>
+  <textarea name="description" required>{{course.description}}</textarea><br/>
+
+  <label>Price (£):</label><br/>
+  <input type="number" name="price" value="{{course.price}}" required /><br/>
+
+  <label>Start Date:</label><br/>
+  <input type="date" name="startDate" value="{{course.startDate}}" required /><br/>
+
+  <label>End Date:</label><br/>
+  <input type="date" name="endDate" value="{{course.endDate}}" required /><br/>
+
+  <label>Type:</label><br/>
+  <select name="type" required>
+    <option value="weekly" {{#course.type}}selected{{/course.type}}>Weekly</option>
+    <option value="weekend" {{#course.type}}selected{{/course.type}}>Weekend</option>
+  </select><br/><br/>
+
+  <button type="submit">Update Course</button>
+</form>
+
+<a href="/courses">Back to Courses</a>

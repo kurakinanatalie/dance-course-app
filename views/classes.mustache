@@ -1,0 +1,23 @@
+<h1>Classes for Course</h1>
+
+<ul>
+  {{#classes}}
+    <li>
+      {{dateTime}} at {{location}}
+      {{#isOrganiser}}
+      <a href="/classes/{{_id}}/participants">View Participants</a>
+        <a href="/classes/edit/{{_id}}">Edit</a>
+        <form method="POST" action="/classes/delete/{{_id}}" style="display:inline;">
+          <input type="hidden" name="courseId" value="{{courseId}}">
+          <button type="submit">Delete</button>
+        </form>
+      {{/isOrganiser}}
+    </li>
+  {{/classes}}
+</ul>
+
+{{#isOrganiser}}
+  <a href="/courses/{{courseId}}/classes/add">Add New Class</a>
+{{/isOrganiser}}
+
+<a href="/courses">Back to Courses</a>

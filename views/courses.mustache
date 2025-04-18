@@ -1,0 +1,19 @@
+<h1>Courses</h1>
+<ul>
+  {{#courses}}
+    <li>
+      <strong>{{name}}</strong> — {{type}} ({{startDate}} to {{endDate}}) – £{{price}}<br/>
+      {{description}}<br/>
+      {{#isOrganiser}}
+      <a href="/courses/{{_id}}/participants">View Participants</a>
+        <a href="/courses/edit/{{_id}}">Edit</a>
+        <form method="POST" action="/courses/delete/{{_id}}" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      {{/isOrganiser}}
+    </li>
+  {{/courses}}
+</ul>
+{{#isOrganiser}}
+  <a href="/courses/add">Add Course</a>
+{{/isOrganiser}}

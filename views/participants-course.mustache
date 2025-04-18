@@ -1,0 +1,11 @@
+<h1>Participants for Course</h1>
+<ul>
+  {{#participants}}
+    <li>{{name}} – {{email}}</li>
+  {{/participants}}
+  {{^participants}}
+    <li>No participants yet.</li>
+  {{/participants}}
+</ul>
+
+<a href="/courses">Back to Courses</a>

@@ -1,4 +1,4 @@
-const Datastore = require('nedb');
+const Datastore = require('@seald-io/nedb');
 const courseDB = new Datastore({ filename: './data/courses.db', autoload: true });
 
 function createCourse(data, callback) {

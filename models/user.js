@@ -1,4 +1,4 @@
-const Datastore = require('nedb');
+const Datastore = require('@seald-io/nedb');
 const bcrypt = require('bcrypt');
 
 const organiserDB = new Datastore({ filename: './data/organisers.db', autoload: true });

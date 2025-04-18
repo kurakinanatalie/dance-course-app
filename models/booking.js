@@ -1,4 +1,4 @@
-const Datastore = require('nedb');
+const Datastore = require('@seald-io/nedb');
 const bookingDB = new Datastore({ filename: './data/bookings.db', autoload: true });
 
 function createBooking(data, callback) {

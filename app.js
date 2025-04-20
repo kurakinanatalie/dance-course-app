@@ -6,24 +6,6 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const authRoutes = require('./routes/authRoutes');
-app.use('/', authRoutes);
-
-const dashboardRoutes = require('./routes/dashboardRoutes');
-app.use('/', dashboardRoutes);
-
-const courseRoutes = require('./routes/courseRoutes');
-app.use('/', courseRoutes);
-
-const classRoutes = require('./routes/classRoutes');
-app.use('/', classRoutes);
-
-const bookingRoutes = require('./routes/bookingRoutes');
-app.use('/', bookingRoutes);
-
-// const { createOrganiser } = require('./models/user');
-// createOrganiser('admin', 'password123', () => console.log('Organiser created'));
-
 // Mustache config
 app.engine('mustache', mustacheExpress());
 app.set('view engine', 'mustache');
@@ -40,12 +22,27 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-    res.locals.isOrganiser = req.session.user && req.session.user.role === 'organiser';
-    next();
-  });
-  
+  res.locals.isOrganiser = req.session.user && req.session.user.role === 'organiser';
+  next();
+});
 
-// Routes placeholder
+// Routes
+const authRoutes = require('./routes/authRoutes');
+app.use('/', authRoutes);
+
+const dashboardRoutes = require('./routes/dashboardRoutes');
+app.use('/', dashboardRoutes);
+
+const courseRoutes = require('./routes/courseRoutes');
+app.use('/', courseRoutes);
+
+const classRoutes = require('./routes/classRoutes');
+app.use('/', classRoutes);
+
+const bookingRoutes = require('./routes/bookingRoutes');
+app.use('/', bookingRoutes);
+
+// Index route
 app.get('/', (req, res) => {
   res.render('index', { user: req.session.user });
 });

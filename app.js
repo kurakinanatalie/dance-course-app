@@ -1,7 +1,9 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const session = require('express-session');
-const bodyParser = require('body-parser');
+
+app.use(express.urlencoded({ extended: true }));
+
 const path = require('path');
 
 const app = express();

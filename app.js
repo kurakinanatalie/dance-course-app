@@ -22,8 +22,8 @@ app.use('/', classRoutes);
 const bookingRoutes = require('./routes/bookingRoutes');
 app.use('/', bookingRoutes);
 
-const { createOrganiser } = require('./models/user');
-createOrganiser('admin', 'password123', () => console.log('Organiser created'));
+// const { createOrganiser } = require('./models/user');
+// createOrganiser('admin', 'password123', () => console.log('Organiser created'));
 
 // Mustache config
 app.engine('mustache', mustacheExpress());

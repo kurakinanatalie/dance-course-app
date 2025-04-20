@@ -33,8 +33,9 @@ app.set('views', path.join(__dirname, 'views'));
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(session({
-  secret: 'keyboard cat', // use env var in production
+  secret: process.env.SESSION_SECRET || 'cat',
   resave: false,
   saveUninitialized: true
 }));

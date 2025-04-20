@@ -18,6 +18,23 @@ function viewClassParticipants(req, res) {
   });
 }
 
+function showCourseBookingForm(req, res) {
+  res.render('book-course', { courseId: req.params.courseId });
+}
+
+function bookCourse(req, res) { 
+  res.render('book-course', { courseId: req.params.courseId }); 
+}
+
+function showClassBookingForm(req, res) { 
+  res.render('book-course', { courseId: req.params.courseId }); 
+}
+
+function bookClass(req, res) { 
+  res.render('book-course', { courseId: req.params.courseId }); 
+}
+
+
 module.exports = {
   showCourseBookingForm,
   bookCourse,

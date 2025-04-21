@@ -42,6 +42,12 @@ app.use('/', classRoutes);
 const bookingRoutes = require('./routes/bookingRoutes');
 app.use('/', bookingRoutes);
 
+const manageOrganisersRoutes = require('./routes/manageOrganisers');
+app.use('/', manageOrganisersRoutes);
+
+const participantRoutes = require('./routes/participants');
+app.use('/participants', participantRoutes);
+
 // Index route
 app.get('/', (req, res) => {
   res.render('index', { user: req.session.user });

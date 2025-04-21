@@ -24,7 +24,11 @@ function addCourse(req, res) {
 
 function showEditForm(req, res) {
   courseModel.getCourseById(req.params.id, (err, course) => {
-    res.render('edit-course', { course });
+    res.render('edit-course', {
+      course,
+      isWeekly: course.type === 'weekly',
+      isWeekend: course.type === 'weekend'
+    });
   });
 }
 

@@ -13,8 +13,18 @@ function getBookingsByClass(classId, callback) {
   bookingDB.find({ type: 'class', classId }, callback);
 }
 
+function getAllBookings(callback) {
+  bookingDB.find({}, callback);
+}
+
+function deleteBooking(id, callback) {
+  bookingDB.remove({ _id: id }, {}, callback);
+}
+
 module.exports = {
   createBooking,
   getBookingsByCourse,
-  getBookingsByClass
+  getBookingsByClass,
+  getAllBookings,
+  deleteBooking
 };

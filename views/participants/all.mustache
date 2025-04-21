@@ -1,0 +1,38 @@
+{{> layouts/main }}
+
+<div class="container mt-4">
+  <h2>All Participants</h2>
+
+  {{#participants.length}}
+  <table class="table table-striped mt-4">
+    <thead class="table-light">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Type</th>
+        <th>Related ID</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#participants}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{email}}</td>
+        <td>{{typeLabel}}</td>
+        <td>{{relatedId}}</td>
+        <td>
+          <form method="POST" action="/participants/{{_id}}/delete" class="d-inline">
+            <button class="btn btn-sm btn-danger" onclick="return confirm('Delete this participant?')">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {{/participants}}
+    </tbody>
+  </table>
+  {{/participants.length}}
+
+  {{^participants.length}}
+    <p class="text-muted mt-4">No participants found.</p>
+  {{/participants.length}}
+</div>

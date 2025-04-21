@@ -1,17 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Login</title>
-</head>
-<body>
-  <h1>Organiser Login</h1>
-  {{#error}}<p style="color:red">{{error}}</p>{{/error}}
-  <form method="POST" action="/login">
-    <label>Username:</label><br/>
-    <input type="text" name="username" required /><br/>
-    <label>Password:</label><br/>
-    <input type="password" name="password" required /><br/>
-    <button type="submit">Login</button>
-  </form>
-</body>
-</html>
+{{> layouts/main }}
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card mt-5 shadow">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Organiser Login</h2>
+
+        {{#error}}
+          <div class="alert alert-danger text-center">{{error}}</div>
+        {{/error}}
+
+        <form method="POST" action="/login">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" name="username" id="username" class="form-control" required />
+          </div>
+
+          <div class="mb-4">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-control" required />
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

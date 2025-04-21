@@ -1,0 +1,36 @@
+{{> layouts/main }}
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mt-5 shadow">
+      <div class="card-body">
+        <h2 class="card-title mb-4 text-center">Add Class to Any Course</h2>
+
+        <form method="POST" action="/classes/add">
+          <div class="mb-3">
+            <label for="courseId" class="form-label">Select Course</label>
+            <select name="courseId" id="courseId" class="form-select" required>
+              {{#courses}}
+                <option value="{{_id}}">{{name}}</option>
+              {{/courses}}
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="dateTime" class="form-label">Date & Time</label>
+            <input type="datetime-local" name="dateTime" class="form-control" required>
+          </div>
+
+          <div class="mb-4">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="location" class="form-control" required>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success">Add Class</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

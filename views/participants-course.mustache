@@ -1,11 +1,30 @@
-<h1>Participants for Course</h1>
-<ul>
-  {{#participants}}
-    <li>{{name}} – {{email}}</li>
-  {{/participants}}
-  {{^participants}}
-    <li>No participants yet.</li>
-  {{/participants}}
-</ul>
+{{> layouts/main }}
 
-<a href="/courses">Back to Courses</a>
+<h2 class="mb-4">Participants for Course</h2>
+
+{{#participants.length}}
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead class="table-light">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#participants}}
+          <tr>
+            <td>{{name}}</td>
+            <td>{{email}}</td>
+          </tr>
+        {{/participants}}
+      </tbody>
+    </table>
+  </div>
+{{/participants.length}}
+
+{{^participants.length}}
+  <p class="text-muted">No participants yet.</p>
+{{/participants.length}}
+
+<a href="/courses" class="btn btn-outline-secondary mt-4">Back to Courses</a>

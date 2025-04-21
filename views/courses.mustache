@@ -1,19 +1,38 @@
-<h1>Courses</h1>
-<ul>
+{{> layouts/main }}
+
+<h2 class="mb-4">Available Courses</h2>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
   {{#courses}}
-    <li>
-      <strong>{{name}}</strong> — {{type}} ({{startDate}} to {{endDate}}) – £{{price}}<br/>
-      {{description}}<br/>
-      {{#isOrganiser}}
-      <a href="/courses/{{_id}}/participants">View Participants</a>
-        <a href="/courses/edit/{{_id}}">Edit</a>
-        <form method="POST" action="/courses/delete/{{_id}}" style="display:inline;">
-          <button type="submit">Delete</button>
-        </form>
-      {{/isOrganiser}}
-    </li>
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{type}} course</h6>
+          <p class="card-text">{{description}}</p>
+          <p class="card-text">
+            <strong>Start:</strong> {{startDate}}<br/>
+            <strong>End:</strong> {{endDate}}<br/>
+            <strong>Price:</strong> £{{price}}
+          </p>
+
+          <a href="/courses/{{_id}}/book" class="btn btn-primary me-2">Book Course</a>
+
+          {{#isOrganiser}}
+            <a href="/courses/edit/{{_id}}" class="btn btn-outline-secondary btn-sm">Edit</a>
+            <form method="POST" action="/courses/delete/{{_id}}" class="d-inline">
+              <button type="submit" class="btn btn-outline-danger btn-sm">Delete</button>
+            </form>
+            <a href="/courses/{{_id}}/participants" class="btn btn-outline-info btn-sm mt-2">View Participants</a>
+          {{/isOrganiser}}
+        </div>
+      </div>
+    </div>
   {{/courses}}
-</ul>
+</div>
+
 {{#isOrganiser}}
-  <a href="/courses/add">Add Course</a>
+  <div class="mt-4">
+    <a href="/courses/add" class="btn btn-success">Add New Course</a>
+  </div>
 {{/isOrganiser}}

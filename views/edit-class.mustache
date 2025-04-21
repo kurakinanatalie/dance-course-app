@@ -1,14 +1,43 @@
-<h1>Edit Class</h1>
-<form method="POST" action="/classes/edit/{{cls._id}}">
-  <input type="hidden" name="courseId" value="{{cls.courseId}}">
+{{> layouts/main }}
 
-  <label>Date & Time:</label><br/>
-  <input type="datetime-local" name="dateTime" value="{{cls.dateTime}}" required><br/>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card mt-5 shadow">
+      <div class="card-body">
+        <h2 class="card-title mb-4 text-center">Edit Class</h2>
 
-  <label>Location:</label><br/>
-  <input type="text" name="location" value="{{cls.location}}" required><br/><br/>
+        <form method="POST" action="/classes/edit/{{cls._id}}">
+          <input type="hidden" name="courseId" value="{{cls.courseId}}">
 
-  <button type="submit">Update</button>
-</form>
+          <div class="mb-3">
+            <label for="dateTime" class="form-label">Date & Time</label>
+            <input
+              type="datetime-local"
+              name="dateTime"
+              id="dateTime"
+              class="form-control"
+              value="{{cls.dateTime}}"
+              required
+            >
+          </div>
 
-<a href="/courses/{{cls.courseId}}/classes">Back to Classes</a>
+          <div class="mb-4">
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              name="location"
+              id="location"
+              class="form-control"
+              value="{{cls.location}}"
+              required
+            >
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Update Class</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

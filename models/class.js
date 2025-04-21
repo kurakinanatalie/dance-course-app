@@ -9,6 +9,10 @@ function getClassesByCourse(courseId, callback) {
   classDB.find({ courseId }, callback);
 }
 
+function getAllClasses(callback) {
+  classDB.find({}, callback);
+}
+
 function getClassById(id, callback) {
   classDB.findOne({ _id: id }, callback);
 }
@@ -26,5 +30,6 @@ module.exports = {
   getClassesByCourse,
   getClassById,
   updateClass,
+  getAllClasses,
   deleteClass
 };

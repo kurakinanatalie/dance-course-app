@@ -1,11 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Organiser Dashboard</title>
-</head>
-<body>
-  <h1>Welcome, {{username}}</h1>
-  <p>This is your organiser dashboard.</p>
-  <a href="/logout">Logout</a>
-</body>
-</html>
+{{> layouts/main }}
+
+<div class="text-center">
+  <h2 class="mb-4">Organiser Dashboard</h2>
+  <p class="lead">Welcome, {{username}}! Use the tools below to manage the platform.</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-4 mt-4">
+  <div class="col">
+    <div class="card h-100 shadow">
+      <div class="card-body text-center">
+        <h5 class="card-title">Manage Courses</h5>
+        <p class="card-text">View, edit, or delete dance courses and add new ones.</p>
+        <a href="/courses" class="btn btn-outline-primary">Go to Courses</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col">
+  <div class="card h-100 shadow">
+    <div class="card-body text-center">
+      <h5 class="card-title">Manage Classes</h5>
+      <p class="card-text">View, edit, or add dance class sessions independently of courses.</p>
+      <a href="/classes" class="btn btn-outline-secondary">Go to Classes</a>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100 shadow">
+    <div class="card-body text-center">
+      <h5 class="card-title">Add Organiser</h5>
+      <p class="card-text">Manually register a new organiser with login credentials</p>
+      <a href="/add-organiser" class="btn btn-outline-warning">Add Organiser</a>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="card h-100 shadow">
+    <div class="card-body text-center">
+      <h5 class="card-title">All Bookings</h5>
+      <p class="card-text">View or delete any participant from all classes and courses.</p>
+      <a href="/participants" class="btn btn-outline-danger">Manage Participants</a>
+    </div>
+  </div>
+</div>
+
+</div>

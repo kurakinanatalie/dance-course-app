@@ -1,12 +1,27 @@
-<h1>Book a Class</h1>
-<form method="POST" action="/classes/{{classId}}/book">
-  <label>Your Name:</label><br/>
-  <input type="text" name="name" required /><br/>
+{{> layouts/main }}
 
-  <label>Email:</label><br/>
-  <input type="email" name="email" required /><br/><br/>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card mt-5 shadow">
+      <div class="card-body">
+        <h2 class="card-title mb-4 text-center">Book This Class</h2>
 
-  <button type="submit">Book Class</button>
-</form>
+        <form method="POST" action="/classes/{{classId}}/book">
+          <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+          </div>
 
-<a href="/courses">Back to Courses</a>
+          <div class="mb-4">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success">Book Class</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

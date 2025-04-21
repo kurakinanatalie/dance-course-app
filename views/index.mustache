@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Dance Courses</title>
-</head>
-<body>
-  <h1>Welcome to the Dance Course Booking App</h1>
-  {{#user}}
-    <p>Hello, {{user.username}}!</p>
-    <a href="/logout">Logout</a>
-  {{/user}}
-  {{^user}}
-    <a href="/login">Login</a> | <a href="/register">Register</a>
-  {{/user}}
-</body>
-</html>
+{{> layouts/main }}
+
+<div class="text-center">
+  <h1 class="mb-4">Welcome to Dance! Course Booking</h1>
+  <p class="lead">We are a local organisation that runs courses of dance classes for people of different levels 
+  of fitness and ability.</p>
+  <p class="lead">Here you can discover and book our amazing dance classes.</p>
+
+  <div class="mt-5">
+    <a href="/courses" class="btn btn-primary btn-lg me-2">Browse Courses</a>
+    <a href="/classes" class="btn btn-primary btn-lg me-2">Browse Classes</a>
+
+    {{#isOrganiser}}
+      <a href="/dashboard" class="btn btn-outline-success btn-lg">Go to Dashboard</a>
+    {{/isOrganiser}}
+
+  </div>
+</div>

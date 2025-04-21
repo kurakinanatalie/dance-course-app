@@ -7,6 +7,7 @@ function showLogin(req, res) {
 
 function login(req, res) {
   const { username, password } = req.body;
+  console.log("REQ.BODY:", req.body);
 
   findOrganiser(username, (err, organiser) => {
     if (err || !organiser) {

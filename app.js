@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const session = require('express-session');

@@ -3,10 +3,17 @@ require('dotenv').config();
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const session = require('express-session');
+const fs = require('fs');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Ensure ./data directory exists
+const dataPath = path.join(__dirname, 'data');
+if (!fs.existsSync(dataPath)) {
+  fs.mkdirSync(dataPath);
+}
 
 // Mustache config
 app.engine('mustache', mustacheExpress());

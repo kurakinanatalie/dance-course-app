@@ -18,6 +18,9 @@
 
           <a href="/courses/{{_id}}/book" class="btn btn-primary me-2">Book Course</a>
 
+          <a href="/courses/{{_id}}/classes" class="btn btn-outline-info btn-sm">View Classes</a>
+
+
           {{#isOrganiser}}
             <a href="/courses/edit/{{_id}}" class="btn btn-outline-secondary btn-sm">Edit</a>
             <form method="POST" action="/courses/delete/{{_id}}" class="d-inline">

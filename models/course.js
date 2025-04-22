@@ -15,6 +15,15 @@ courseDB.loadDatabase((err) => {
   }
 });
 
+const classDB = new Datastore({ filename: path.join(__dirname, '../data/classes.db') });
+
+classDB.loadDatabase((err) => {
+  if (err) {
+    console.error('Failed to load classes.db in course.js:', err);
+  } else {
+    console.log('classes.db loaded in course.js');
+  }
+});
 
 function createCourse(data, callback) {
   courseDB.insert(data, callback);

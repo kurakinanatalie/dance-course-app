@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node seed.js && node app.js",
-    "seed": "node seed.js"
+    "start": "node app.js",
+    "seed": "node seed.js",
+    "start:fresh": "npm run seed && npm run start"
   },
   "author": "",
   "license": "ISC",

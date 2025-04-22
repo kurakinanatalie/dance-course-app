@@ -1,5 +1,19 @@
+//const Datastore = require('@seald-io/nedb');
+//const classDB = new Datastore({ filename: './data/classes.db', autoload: true });
+
+const path = require('path');
 const Datastore = require('@seald-io/nedb');
-const classDB = new Datastore({ filename: './data/classes.db', autoload: true });
+
+const classDB = new Datastore({ filename: path.join(__dirname, '../data/classes.db') });
+
+classDB.loadDatabase((err) => {
+  if (err) {
+    console.error('Failed to load classes.db:', err);
+  } else {
+    console.log('classes.db loaded');
+  }
+});
+
 
 function createClass(data, callback) {
   classDB.insert(data, callback);

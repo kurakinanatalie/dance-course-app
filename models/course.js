@@ -1,6 +1,20 @@
+// const Datastore = require('@seald-io/nedb');
+// const courseDB = new Datastore({ filename: './data/courses.db', autoload: true });
+// const classDB = new Datastore({ filename: './data/classes.db', autoload: true });
+
+const path = require('path');
 const Datastore = require('@seald-io/nedb');
-const courseDB = new Datastore({ filename: './data/courses.db', autoload: true });
-const classDB = new Datastore({ filename: './data/classes.db', autoload: true });
+
+const courseDB = new Datastore({ filename: path.join(__dirname, '../data/courses.db') });
+
+courseDB.loadDatabase((err) => {
+  if (err) {
+    console.error('Failed to load courses.db:', err);
+  } else {
+    console.log('courses.db loaded');
+  }
+});
+
 
 function createCourse(data, callback) {
   courseDB.insert(data, callback);

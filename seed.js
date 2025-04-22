@@ -111,12 +111,12 @@ function seedCoursesAndClasses() {
   ];
 
   coursesDB.insert(courses, () => {
-    console.log('✅ Courses seeded');
+    console.log('Courses seeded');
     classesDB.insert(classes, () => {
-      console.log('✅ Classes seeded');
+      console.log('Classes seeded');
       bookingsDB.insert(bookings, () => {
-        console.log('✅ Bookings seeded');
-        console.log('🌱 Seed completed');
+        console.log('Bookings seeded');
+        console.log('Seed completed');
       });
     });
   });

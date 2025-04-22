@@ -1,4 +1,5 @@
 const Datastore = require('@seald-io/nedb');
+const { createOrganiser, findOrganiser } = require('./models/user');
 const path = require('path');
 
 const coursesDB = new Datastore({ filename: './data/courses.db', autoload: true });
@@ -121,5 +122,23 @@ function seedCoursesAndClasses() {
     });
   });
 }
+
+// Create default organiser if not exists
+findOrganiser('admin', (err, existing) => {
+    if (err) {
+      console.error('Error checking admin:', err);
+    } else if (!existing) {
+      createOrganiser('admin', 'password123', (err) => {
+        if (err) {
+          console.error('Failed to create default admin:', err);
+        } else {
+          console.log('Default admin created: admin / password123');
+        }
+      });
+    } else {
+      console.log('Admin already exists, skipping creation');
+    }
+  });
+  
 
 clearAndSeed();

@@ -1,5 +1,6 @@
 const Datastore = require('@seald-io/nedb');
 const courseDB = new Datastore({ filename: './data/courses.db', autoload: true });
+const classDB = new Datastore({ filename: './data/classes.db', autoload: true });
 
 function createCourse(data, callback) {
   courseDB.insert(data, callback);
@@ -21,10 +22,23 @@ function deleteCourse(id, callback) {
   courseDB.remove({ _id: id }, {}, callback);
 }
 
+function deleteCourseAndClasses(id, callback) {
+  courseDB.remove({ _id: id }, {}, (err, numRemoved) => {
+    if (err) return callback(err);
+
+    classDB.remove({ courseId: id }, { multi: true }, (err2) => {
+      if (err2) return callback(err2);
+
+      callback(null, numRemoved);
+    });
+  });
+}
+
 module.exports = {
   createCourse,
   getAllCourses,
   getCourseById,
   updateCourse,
-  deleteCourse
+  deleteCourse,
+  deleteCourseAndClasses
 };

@@ -45,7 +45,13 @@ function updateCourse(req, res) {
 }
 
 function deleteCourse(req, res) {
-  courseModel.deleteCourse(req.params.id, () => res.redirect('/courses'));
+  courseModel.deleteCourseAndClasses(req.params.id, (err) => {
+    if (err) {
+      console.error("Error deleting course and its classes:", err);
+      return res.status(500).send("Failed to delete course.");
+    }
+    res.redirect('/courses');
+  });
 }
 
 module.exports = {

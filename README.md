@@ -5,18 +5,22 @@ Built with **Express**, **Mustache**, **NeDB**, and **MVC** architecture.
 
 ---
 
-## 🚀 Features
+## Features
+**Users** can book classes and courses without registration, they just need to indicate their name and email address. 
 
-- View current and upcoming courses & sessions
-- Book full courses or individual classes (no login required)
-- Organiser login with full admin capabilities:
-  - Add / Edit / Delete courses and classes
-  - View participant lists
-  - Manage organiser accounts (optional)
+**Organisers**:
+1. Username = admin, password = password123;
+2. they can: 
+  * add, edit, delete courses;
+  * add, edit, delete classes relative to a certain course;
+  * view classes relative to a certain course;
+  * view the list of participants who have booked a class or course, delete participants;
+  * add new administrators to the system;
+  * management is carried out through tabs on the administrator dashboard.
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 - Node.js
 - Express
@@ -27,9 +31,6 @@ Built with **Express**, **Mustache**, **NeDB**, and **MVC** architecture.
 
 ---
 
-## 🛠 Setup Instructions
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/kurakinanatalie/dance-course-app.git
-   cd dance-course-app
+## Deployment
+https://dance-course-app-production.up.railway.app/
+https://dance-course-app-5gff.onrender.com/

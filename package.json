@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "seed": "node seed.js",
-    "start:fresh": "npm run seed && npm run start",
-    "build": "mkdir -p data && npm run seed"
-  },
+  "start": "node app.js",
+  "seed": "node seed.js",
+  "build": "npm run seed",
+  "start:fresh": "npm run seed && npm start"
+},
   "author": "",
   "license": "ISC",
   "description": "",

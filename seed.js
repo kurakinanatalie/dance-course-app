@@ -28,16 +28,20 @@ Promise.all([
 
 // Clear & insert
 function clearAndSeed() {
-  coursesDB.remove({}, { multi: true }, () => {
-    classesDB.remove({}, { multi: true }, () => {
-      bookingsDB.remove({}, { multi: true }, () => {
-        seedCoursesAndClasses();
+    coursesDB.remove({}, { multi: true }, () => {
+      classesDB.remove({}, { multi: true }, () => {
+        bookingsDB.remove({}, { multi: true }, () => {
+          seedCoursesAndClasses().then(() => {
+            console.log('Seeding complete');
+          }).catch(err => {
+            console.error('Seeding failed:', err);
+          });
+        });
       });
     });
-  });
-}
+  }
 
-function seedCoursesAndClasses() {
+  async function seedCoursesAndClasses() {
     const courses = [
       {
         _id: "4jF67Rt0LOZbFlTs",
@@ -132,17 +136,28 @@ function seedCoursesAndClasses() {
       }
     ];
 
-  coursesDB.insert(courses, () => {
-    console.log('Courses seeded');
-    classesDB.insert(classes, () => {
-      console.log('Classes seeded');
-      bookingsDB.insert(bookings, () => {
+    await new Promise((resolve, reject) => {
+
+    coursesDB.insert(courses, (err) => {
+        if (err) return reject(err);
+        console.log('Courses seeded');
+
+    classesDB.insert(classes, (err2) => {
+        if (err2) return reject(err2);
+        console.log('Classes seeded');
+
+      bookingsDB.insert(bookings, (err3) => {
+        if (err3) return reject(err3);
         console.log('Bookings seeded');
+
         createAdmin();
-      });
+        resolve();
+        });
+        });
     });
-  });
-}
+    });
+  }
+
 
 // Create default organiser if not exists
 function createAdmin() {

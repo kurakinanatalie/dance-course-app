@@ -1,19 +1,20 @@
 // const Datastore = require('@seald-io/nedb');
 // const bookingDB = new Datastore({ filename: './data/bookings.db', autoload: true });
 
-const path = require('path');
-const Datastore = require('@seald-io/nedb');
+// const path = require('path');
+// const Datastore = require('@seald-io/nedb');
 
-const bookingDB = new Datastore({ filename: path.join(__dirname, '../data/bookings.db') });
+// const bookingDB = new Datastore({ filename: path.join(__dirname, '../data/bookings.db') });
 
-bookingDB.loadDatabase((err) => {
-  if (err) {
-    console.error('Failed to load bookings.db:', err);
-  } else {
-    console.log('bookings.db loaded');
-  }
-});
+// bookingDB.loadDatabase((err) => {
+//   if (err) {
+//     console.error('Failed to load bookings.db:', err);
+//   } else {
+//     console.log('bookings.db loaded');
+//   }
+// });
 
+const { bookingDB } = require('./databases');
 
 function createBooking(data, callback) {
   bookingDB.insert(data, callback);

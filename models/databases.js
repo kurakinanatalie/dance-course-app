@@ -1,5 +1,6 @@
 const path = require('path');
 const Datastore = require('@seald-io/nedb');
+const bcrypt = require('bcrypt');
 
 // all databases
 const courseDB = new Datastore({ filename: path.join(__dirname, '../data/courses.db'), autoload: true });

@@ -1,14 +1,16 @@
+require('./initDataDir');
+
 const fs = require('fs');
 const path = require('path');
 const Datastore = require('@seald-io/nedb');
 const { createOrganiser, findOrganiser } = require('./models/user');
 
 // Ensure ./data exists
-const dataDir = path.join(__dirname, 'data');
-if (!fs.existsSync(dataDir)) {
-  fs.mkdirSync(dataDir);
-  console.log('Created ./data directory inside seed.js');
-}
+// const dataDir = path.join(__dirname, 'data');
+// if (!fs.existsSync(dataDir)) {
+//   fs.mkdirSync(dataDir);
+//   console.log('Created ./data directory inside seed.js');
+// }
 
 // Init DBs without autoload
 const coursesDB = new Datastore({ filename: './data/courses.db' });

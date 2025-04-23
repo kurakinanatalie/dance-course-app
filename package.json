@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app.js",
     "seed": "node seed.js",
-    "build": "npm run seed",
+    "build": "node initDataDir.js && npm run seed",
     "start:fresh": "npm run seed && npm start"
   },
   "author": "",
